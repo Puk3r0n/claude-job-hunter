@@ -1,0 +1,12 @@
+# Personal data — never commit
+config.yaml
+profile/master_profile.yaml
+out/
+data/
+logs/
+
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store

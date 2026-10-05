@@ -1,0 +1,100 @@
+# Master profile — the single source of truth for every generated resume.
+# Copy to profile/master_profile.yaml (git-ignored) and replace everything with your own facts.
+# The LLM may select, reorder and rephrase what is here, but never adds facts, technologies,
+# numbers or responsibilities that are not listed below.
+
+name: Alex Doe
+contacts:
+  email: alex.doe@example.com
+  telegram: "@alexdoe"
+  phone: "+000 000 000 000"
+  linkedin: "linkedin.com/in/alex-doe"
+  github: ""
+location: Lisbon, Portugal
+notice_period: 1 month
+# Used in cover letters as the availability sentence.
+work_setup: "Remote (B2B contract, WET time zone) or hybrid in Lisbon"
+
+headline_options:
+  - Data Engineer | Spark, Airflow & Data Quality
+  - Analytics Engineer | SQL, dbt & Data Modeling
+
+years_of_experience: "5+"
+english_level: C1
+
+# Strongest quantified results — put early in resumes when relevant.
+highlights:
+  - Cut nightly pipeline runtime from 6 hours to 40 minutes
+  - Data quality checks covering 300+ tables
+
+# Skills the resume may list. The tailoring step can only pick from these lists.
+skills:
+  production:
+    - Python
+    - SQL
+    - PySpark
+    - Airflow
+    - dbt
+    - PostgreSQL
+    - BigQuery
+    - Data quality frameworks
+    - ETL/ELT pipeline design
+    - Data modeling
+  familiar:   # may appear only in a "Familiar with" line, never as production experience
+    - Kafka
+    - Terraform
+
+experience:
+  - company: Example Corp
+    title_options: [Data Engineer, Senior Data Engineer]
+    location: Lisbon (Hybrid)
+    dates: March 2022 — Present
+    facts:
+      - Built and maintain batch ETL pipelines in PySpark and Airflow for the analytics team.
+      - Cut nightly pipeline runtime from 6 hours to 40 minutes by repartitioning and caching hot joins.
+      - Introduced data quality checks covering 300+ tables with alerting to Slack.
+    stack: [Python, PySpark, SQL, Airflow, BigQuery]
+
+  - company: Startup Ltd
+    title_options: [Data Analyst]
+    location: Remote
+    dates: June 2020 — February 2022
+    facts:
+      - Built revenue and retention dashboards used by the leadership team.
+      - Modeled core business metrics in dbt.
+    stack: [SQL, dbt, Looker]
+
+  # Mark a role optional to include it only when the posting makes it relevant.
+  - company: Freelance
+    optional: true
+    title_options: [Python Developer]
+    location: Remote
+    dates: January 2019 — May 2020
+    facts:
+      - Built small web scrapers and REST API integrations for clients.
+    stack: [Python, FastAPI]
+
+education:
+  - University of Somewhere — BSc Computer Science, 2020
+
+languages:
+  - English — Advanced (C1)
+  - Portuguese — Intermediate (B1)
+
+# Context for job scoring only (never printed on the resume).
+eligibility:
+  citizenship: Portugal
+  residence: Portugal
+  legal_entity: Self-employed (can invoice EU and non-EU clients)
+  can_work_as: Employee or contractor in the EU; B2B contractor for companies elsewhere
+  not_eligible: roles requiring US/UK/Canada work authorization; on-site roles outside Lisbon without relocation support
+  rules:
+    - Ignore roles paying in currencies other than EUR, USD or GBP.
+
+# Optional: fixed text for Russian-language resumes (lang=ru), e.g. for jobs added with `jobhunt add --lang ru`.
+# ru:
+#   name: ...
+#   location: ...
+#   locations: {"Lisbon (Hybrid)": "Лиссабон (гибрид)"}
+#   education: [...]
+#   languages: [...]

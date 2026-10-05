@@ -1,0 +1,2 @@
+# Linux: crontab -e, then add (replace the path):
+0 9 * * * /path/to/claude-job-hunter/daily.sh

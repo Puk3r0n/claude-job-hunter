@@ -1,0 +1,97 @@
+# Copy to config.yaml (git-ignored) and adjust.
+ui_language: English   # language of the short summaries in scoring and the daily digest
+
+search:
+  # A title must match at least one of these (case-insensitive substring).
+  title_include:
+    - data engineer
+    - data quality
+    - analytics engineer
+    - data analyst
+    - data platform
+    - etl
+    - dataops
+    - data reliability
+    - big data
+    - ml data
+    - data infrastructure
+    - dwh
+    - data qa
+    - qa engineer (data
+    - etl test
+    - dwh test
+    - data test
+    - data validation
+    - data governance
+    - data observability
+    - qa data
+    - bi qa
+    - инженер данных
+    - аналитик данных
+    - аналитик dwh
+    - data scientist / data engineer
+  # A title containing any of these is dropped.
+  title_exclude:
+    - intern
+    - junior
+    - principal
+    - director
+    - head of
+    - vp
+    - manager
+    - sales
+    - annotator
+    - annotation
+    - recruiter
+    - стажер
+    - стажёр
+    - джун
+  min_monthly_usd: 3500
+  # Locations (besides worldwide/EMEA/Europe) where you can work: your country/city.
+  open_location_markers: [portugal, lisbon]
+  # Salaries in these currencies are rejected outright (goal: pay in foreign currency).
+  reject_currencies: [RUB, BYN]
+  max_age_days: 30
+
+# Approximate FX rates to USD, used to normalize published salaries.
+fx_to_usd:
+  USD: 1.0
+  EUR: 1.08
+  GBP: 1.27
+  CHF: 1.13
+  PLN: 0.25
+  AED: 0.27
+  CAD: 0.73
+  AUD: 0.66
+
+scoring:
+  min_fit_score: 7         # jobs below this are not tailored
+  model: opus
+  effort: low              # scoring is a light classification task
+tailoring:
+  model: opus
+  effort: high
+
+# Company boards on public ATS APIs. Add any company you like:
+# greenhouse -> boards.greenhouse.io/<slug>, lever -> jobs.lever.co/<slug>, ashby -> jobs.ashbyhq.com/<slug>
+companies:
+  greenhouse: [gitlab, canonical, wikimedia, grafanalabs, elastic, mozilla, datadog, databricks, wolt,
+               automatticcareers, coinbase, okx, bybit, jetbrains, wise, monzo, getyourguide, n26, bitpanda,
+               fireblocks, gemini, blockchain, jumptrading, sumup, tamara, careem, insider, picsart, consensys]
+  lever: [binance, trendyol, 1inch, toptal]
+  ashby: [airbyte, clickhouse, sentry, n8n, posthog, supabase, zapier, dune, miro, snyk, paddle, gitbook,
+          ledger, alchemy, paxos, keyrock]
+
+# Public Telegram channels read via t.me/s/<channel> (no account needed).
+telegram_channels: [data_engineer_jobs, datajobschannel, datajob, foranalysts, datasciencejobs, ingamejob,
+                    remote_jobs_ru, remocate, remoteit, geekjobs, relocateme]
+
+getmatch:                # Russian-language board; keeps only worldwide-remote offers and these home locations
+  home_locations: []
+# LinkedIn guest search. Automated access may violate LinkedIn's User Agreement — it is disabled by default
+# (see disabled_sources). Enable only for low-volume personal use, at your own risk.
+linkedin:
+  regions:
+    - {label: Portugal, location: Portugal, geoId: "100364837"}
+    - {label: EMEA remote, location: EMEA, geoId: "91000007", remote_only: true}
+disabled_sources: [linkedin]

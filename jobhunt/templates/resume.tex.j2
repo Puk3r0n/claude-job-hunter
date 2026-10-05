@@ -1,0 +1,51 @@
+% ATS-safe one-page resume: plain text, no icon fonts, single column.
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=0.5in,right=0.5in,top=0.4in,bottom=0.4in]{geometry}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[utf8]{inputenc}
+<% if lang == 'en' %>\usepackage{lmodern}
+<% endif %>\usepackage[<<babel>>]{babel}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\definecolor{charcoal}{RGB}{51,51,51}
+\titleformat{\section}{\large\bfseries\color{charcoal}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{4pt}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries <<name>>}\\[1mm]
+  {\large <<headline>>}\\[1mm]
+  <<contacts>>
+\end{center}
+
+\section*{<<L.summary>>}
+<<summary>>
+
+\section*{<<L.skills>>}
+<% for g in skill_groups %>\textbf{<<g.name>>:} <<g.skills>>\\
+<% endfor %><% if familiar_with %>\textbf{<<L.familiar>>:} <<familiar_with>>
+<% endif %>
+
+\section*{<<L.experience>>}
+<% for e in experience %>
+\textbf{<<e.company>>} --- <<e.title>> \hfill <<e.dates>>\\
+\textit{<<e.location>>}
+\begin{itemize}[leftmargin=*,nosep,topsep=2pt]
+<% for b in e.bullets %>  \item <<b>>
+<% endfor %>\end{itemize}
+\textit{<<L.stack>>: <<e.stack>>}
+\vspace{3pt}
+<% endfor %>
+
+\section*{<<L.education>>}
+<% for ed in education %><<ed>>\\
+<% endfor %>
+
+\section*{<<L.languages>>}
+<<languages>>
+
+\end{document}
